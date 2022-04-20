@@ -1,10 +1,10 @@
 import PromotionCard from "./Card";
-import { usePromotion } from "../../hooks/usePromotion";
+import { usePromotions } from "../../hooks/usePromotions";
 import { Link } from "react-router-dom";
 import { ListHeader, ListTitle } from "./Style";
 
 export default function PromotionList() {
-  const { promotions } = usePromotion();
+  const { promotions } = usePromotions();
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { promotionService } from "../service/getPromotions";
 
-export const usePromotion = () => {
+export const usePromotions = () => {
   const [promotions, setPromotions] = useState([]);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const CardSection = styled.section `
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin: 1em auto;
     box-shadow: 10px 5px 8px rgba(0,0,0, 0.1);
@@ -15,7 +15,6 @@ export const CardImage = styled.img `
 `
 export const CardInfo = styled.div `
     margin: 0 2rem;
-    align-self: flex-end;
 `
 export const CardTitle = styled.h2 `
     font-size: 20px;
@@ -33,7 +32,8 @@ export const CardFooter = styled.footer `
 export const CardComments = styled.div `
     p {
         color: #ccc;
-        font-size: 1.4em;
+        font-size: 1em;
+        width: 400px;
     }
     span {
         color: #3498d8;
