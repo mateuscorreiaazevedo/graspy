@@ -6,29 +6,41 @@ import {
   CardPrice,
   CardFooter,
   CardComments,
-  CardLink,
-} from "./Style";
+  CardLink
+} from './Style'
+import PropTypes from 'prop-types'
 
-export default function PromotionCard({ handlePromotions }) {
+PromotionCard.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  comments: PropTypes.array.isRequired,
+  url: PropTypes.string
+}
+
+export default function PromotionCard (props) {
+  const { imageUrl, title, price, comments, url } = props
   return (
     <CardSection>
-      <CardImage src={handlePromotions.imageUrl} alt={handlePromotions.title} />
+      <CardImage src={imageUrl} alt={title} />
       <CardInfo>
-        <CardTitle>{handlePromotions.title}</CardTitle>
-        <CardPrice>R${handlePromotions.price}</CardPrice>
+        <CardTitle>{title}</CardTitle>
+        <CardPrice>R${price}</CardPrice>
         <CardFooter>
           <CardComments>
-            {handlePromotions.comments.length > 0 && (
-              <p>"{handlePromotions.comments[0].comment}"</p>
+            {comments.length > 0 && (
+              <p>"{comments[0].comment}"</p>
             )}
             <span>
-              {handlePromotions.comments.length}
-              {handlePromotions.comments.length > 1 ? " Comentários" : " Comentário"}
+              {comments.length}
+              {comments.length > 1 ? ' Comentários' : ' Comentário'}
             </span>
           </CardComments>
-          <CardLink href={handlePromotions.url}>IR PARA O SITE</CardLink>
+          {!!url && (
+            <CardLink href={url}>IR PARA O SITE</CardLink>
+          )}
         </CardFooter>
       </CardInfo>
     </CardSection>
-  );
+  )
 }

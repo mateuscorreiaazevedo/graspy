@@ -1,7 +1,7 @@
-import { api } from "./api";
+import { api } from './api'
 
 export const promotionService = {
-  getAll: () => {
-    return api.get("/promotions?_embed=comments");
-  },
-};
+  getAll: ({ ...props }) => {
+    return api.get('/promotions?_embed=comments', { ...props })
+  }
+}
