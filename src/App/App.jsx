@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PromotionForm from "../components/Form/PromotionForm";
-import "../style.css"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import PromotionForm from '../components/form/PromotionForm'
+import '../style.css'
 
-import PromotionList from "../components/promotion/List";
+import PromotionList from '../components/promotion/List'
 
-export default function App() {
+export default function App () {
   return (
     <div className="container">
       <Router>
@@ -14,5 +14,5 @@ export default function App() {
         </Routes>
       </Router>
     </div>
-  );
+  )
 }
