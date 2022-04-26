@@ -34,10 +34,12 @@ export const CardComments = styled.div`
         color: #ccc;
         font-size: 1em;
         width: 400px;
+        font-weight: bold;
     }
     span {
         color: #3498d8;
         font-weight: 600;
+        font-size: .9em;
     }
 `
 export const CardLink = styled.a`

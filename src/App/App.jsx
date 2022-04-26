@@ -1,16 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import PromotionForm from '../components/form/PromotionForm'
 import '../style.css'
-
-import PromotionList from '../components/promotion/List'
+import Promotions from '../pages/Promotions'
+import NewPromotion from '../pages/NewPromotion'
 
 export default function App () {
   return (
     <div className="container">
       <Router>
         <Routes>
-          <Route exact path="/" element={<PromotionList />} />
-          <Route path="/create" element={<PromotionForm />} />
+          <Route exact path="/" element={<Promotions />} />
+          <Route path="/create" element={<NewPromotion />} />
         </Routes>
       </Router>
     </div>
