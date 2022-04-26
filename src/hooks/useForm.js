@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { formService } from '../service/postPromotion'
+import { useNavigate } from 'react-router-dom'
 
 export const useForm = () => {
   const [values, setValues] = useState({})
+  const navigate = useNavigate()
 
-  const change = (event) => {
+  const setValue = (event) => {
     const { name, value } = event.target
     setValues(prev => {
       return {
@@ -13,8 +16,19 @@ export const useForm = () => {
     })
   }
 
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    formService
+      .save(values)
+      .then(resp => {
+        navigate('/')
+      })
+      .catch(err => alert(err.message))
+  }
+
   return {
-    change,
-    values
+    setValue,
+    handleSubmit
   }
 }

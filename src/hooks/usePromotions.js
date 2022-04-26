@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { promotionService } from '../service/getPromotions'
 
-export const usePromotions = () => {
+export const usePromotion = () => {
   const [promotions, setPromotions] = useState([])
-  const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
-  const params = {}
-  if (search) {
-    params.title_like = search
-  }
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
+    const params = {}
+    if (search) {
+      params.title_like = search
+    }
     promotionService
       .getAll({ params })
-      .then((res) => setPromotions(res.data))
-      .catch((err) => alert(err.message))
+      .then(res => setPromotions(res.data))
+      .catch(err => alert(err.message))
       .finally(() => setLoading(false))
   }, [search])
 
-  const event = (e) => setSearch(e.target.value)
+  const handleChange = e => setSearch(e.target.value)
 
   return {
     promotions,
-    event,
+    loading,
     search,
-    loading
+    handleChange
   }
 }
